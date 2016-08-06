@@ -1,8 +1,14 @@
 document.addEventListener('DOMContentLoaded', startGame)
 
+//Audio
+var mark = document.getElementById("mark")
+var mine = document.getElementById("mine")
+var clap = document.getElementById("clap")
+
+
+
+
 // Define your `board` object here!
-
-
 var boardSize = 4
 
 var board = {
@@ -13,12 +19,13 @@ var board = {
       var obj = {}
       obj.row = row
           obj.col = col
+          // obj.isMine = false
           obj.isMine = Math.random() < 0.3 ? true : false
           obj.hidden = true
       board.cells.push(obj)
       }
     }
-
+document.addEventListener(click, mine.play())
 
 function startGame () {
 
