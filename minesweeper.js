@@ -2,32 +2,23 @@ document.addEventListener('DOMContentLoaded', startGame)
 
 // Define your `board` object here!
 
-// var board = {
-//   cells: []
-// }
-// for (var row = 0; row < 4; row++) {
-//     for (var col = 0; col < 4; col++) {
-//     var obj = {}
-//     obj.row = row
-//         obj.col = col
-//     board.cells.push(obj)
-//     }
-// }
 
+var boardSize = 4
 
 var board = {
-  cells: [
-    {row: 0, col: 0, isMine: true, hidden: true},
-    {row: 0, col: 1, isMine: false, hidden: true},
-    {row: 0, col: 2, isMine: true, hidden: true},
-    {row: 1, col: 0, isMine: false, hidden: true},
-    {row: 1, col: 1, isMine: false, hidden: true},
-    {row: 1, col: 2, isMine: false, hidden: true},
-    {row: 2, col: 0, isMine: true, hidden: true},
-    {row: 2, col: 1, isMine: false, hidden: true},
-    {row: 2, col: 2, isMine: false, hidden: true}
-  ]
+  cells: []
 }
+  for (var row = 0; row < boardSize; row++) {
+      for (var col = 0; col < boardSize; col++) {
+      var obj = {}
+      obj.row = row
+          obj.col = col
+          obj.isMine = Math.random() < 0.3 ? true : false
+          obj.hidden = true
+      board.cells.push(obj)
+      }
+    }
+
 
 function startGame () {
 
@@ -41,6 +32,7 @@ for (var i = 0; board.cells[i]; i++) {
   document.addEventListener('click', checkForWin)
   document.addEventListener('contextmenu', checkForWin)
 }
+
 
 // Define this function to look for a win condition:
 //
@@ -56,8 +48,9 @@ function checkForWin () {
         return
       }
     }
-      lib.displayMessage('You win!')
+      lib.displayMessage('You win! <br> <button onClick="history.go(0)">Play Again?</button>')
   }
+
 
 
   // You can use this function call to declare a winner (once you've
