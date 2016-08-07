@@ -2,9 +2,8 @@ document.addEventListener('DOMContentLoaded', startGame)
 
 //Audio
 var mark = document.getElementById("mark")
-var mine = document.getElementById("mine")
+var bomb = document.getElementById("bomb")
 var clap = document.getElementById("clap")
-
 
 
 
@@ -25,7 +24,7 @@ var board = {
       board.cells.push(obj)
       }
     }
-document.addEventListener(click, mine.play())
+
 
 function startGame () {
 
@@ -38,6 +37,7 @@ for (var i = 0; board.cells[i]; i++) {
 
   document.addEventListener('click', checkForWin)
   document.addEventListener('contextmenu', checkForWin)
+  // document.addEventListener('click', mark.play())
 }
 
 
